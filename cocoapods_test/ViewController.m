@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import <AFNetworking/AFNetworking.h>
 
 @interface ViewController ()
 
@@ -16,6 +17,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    AFHTTPSessionManager *sessionManager = [[AFHTTPSessionManager alloc]initWithBaseURL:[NSURL URLWithString:@""]];
+    [sessionManager GET:@"stream" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    }];
+    
     // Do any additional setup after loading the view, typically from a nib.
 }
 
